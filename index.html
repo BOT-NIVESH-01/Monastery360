@@ -1,0 +1,498 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Monastery360 - Explore Sacred Heritage</title>
+    <link rel="stylesheet" href="css/main.css" />
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Crimson Text', serif;
+            min-height: 100vh;
+            overflow: hidden;
+            position: relative;
+        }
+        
+        /* Background with monastery image overlay */
+        .loading-bg {
+            position: absolute;
+            inset: 0;
+            background-image: url('https://images.unsplash.com/photo-1544735716-392fe2489ffa?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+        }
+        
+        .loading-bg::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(135deg, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0.5) 50%, rgba(0,0,0,0.8) 100%);
+            backdrop-filter: blur(1px);
+        }
+        
+        .loading-container {
+            position: relative;
+            z-index: 10;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            text-align: center;
+            color: white;
+            padding: 2rem;
+            animation: fadeInUp 1.2s ease-out;
+        }
+        
+        /* Logo Design matching homepage */
+        .logo-container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 2rem;
+            animation: logoGlow 2s ease-in-out infinite alternate;
+        }
+        
+        .logo-icon {
+            width: 4rem;
+            height: 4rem;
+            margin-right: 1rem;
+            filter: drop-shadow(0 0 10px rgba(255, 255, 255, 0.3));
+        }
+        
+        .logo-text {
+            font-size: 3rem;
+            font-weight: 600;
+            font-family: 'Crimson Text', serif;
+            background: linear-gradient(45deg, #fbbf24 0%, #f59e0b 50%, #d97706 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.5);
+        }
+        
+        .tagline {
+            font-size: 1.5rem;
+            margin-bottom: 3rem;
+            color: rgba(255, 255, 255, 0.9);
+            font-weight: 300;
+            line-height: 1.6;
+            max-width: 600px;
+            animation: slideUp 1.5s ease-out 0.3s both;
+        }
+        
+        /* Enhanced Loading Spinner */
+        .loading-spinner-container {
+            position: relative;
+            margin-bottom: 2rem;
+            animation: slideUp 1.5s ease-out 0.6s both;
+        }
+        
+        .loading-spinner {
+            width: 80px;
+            height: 80px;
+            border: 3px solid rgba(251, 191, 36, 0.2);
+            border-top: 3px solid #fbbf24;
+            border-radius: 50%;
+            animation: spin 1.5s linear infinite;
+            margin: 0 auto;
+            position: relative;
+        }
+        
+        .loading-spinner::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 12px;
+            height: 12px;
+            background: #fbbf24;
+            border-radius: 50%;
+            box-shadow: 0 0 20px rgba(251, 191, 36, 0.6);
+        }
+        
+        /* Inner rotating elements */
+        .loading-inner {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            right: 10px;
+            bottom: 10px;
+            border: 2px solid rgba(245, 158, 11, 0.3);
+            border-left: 2px solid #f59e0b;
+            border-radius: 50%;
+            animation: spin 2s linear infinite reverse;
+        }
+        
+        .loading-text {
+            font-size: 1.1rem;
+            color: rgba(255, 255, 255, 0.8);
+            font-weight: 400;
+            animation: slideUp 1.5s ease-out 0.9s both;
+        }
+        
+        /* Progress Bar */
+        .progress-container {
+            width: 300px;
+            height: 4px;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 2px;
+            overflow: hidden;
+            margin: 1.5rem auto 0;
+            animation: slideUp 1.5s ease-out 1.2s both;
+        }
+        
+        .progress-bar {
+            height: 100%;
+            background: linear-gradient(90deg, #fbbf24, #f59e0b, #d97706);
+            border-radius: 2px;
+            animation: loading-progress 3s ease-in-out;
+            transform-origin: left;
+        }
+        
+        /* Floating Particles */
+        .particle {
+            position: absolute;
+            background: rgba(251, 191, 36, 0.6);
+            border-radius: 50%;
+            pointer-events: none;
+            animation: float 6s ease-in-out infinite;
+        }
+        
+        .particle:nth-child(1) {
+            width: 4px;
+            height: 4px;
+            top: 20%;
+            left: 10%;
+            animation-delay: 0s;
+        }
+        
+        .particle:nth-child(2) {
+            width: 6px;
+            height: 6px;
+            top: 60%;
+            left: 80%;
+            animation-delay: 2s;
+        }
+        
+        .particle:nth-child(3) {
+            width: 3px;
+            height: 3px;
+            top: 80%;
+            left: 20%;
+            animation-delay: 4s;
+        }
+        
+        .particle:nth-child(4) {
+            width: 5px;
+            height: 5px;
+            top: 30%;
+            left: 70%;
+            animation-delay: 1s;
+        }
+        
+        /* Sacred Geometry Background Elements */
+        .sacred-geometry {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 400px;
+            height: 400px;
+            opacity: 0.1;
+            pointer-events: none;
+            animation: rotate 20s linear infinite;
+        }
+        
+        .sacred-geometry::before {
+            content: '';
+            position: absolute;
+            inset: 50px;
+            border: 1px solid rgba(251, 191, 36, 0.3);
+            border-radius: 50%;
+        }
+        
+        .sacred-geometry::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%) rotate(45deg);
+            width: 200px;
+            height: 200px;
+            border: 1px solid rgba(251, 191, 36, 0.2);
+        }
+        
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        @keyframes slideUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        
+        @keyframes rotate {
+            0% { transform: translate(-50%, -50%) rotate(0deg); }
+            100% { transform: translate(-50%, -50%) rotate(360deg); }
+        }
+        
+        @keyframes logoGlow {
+            from {
+                filter: drop-shadow(0 0 10px rgba(251, 191, 36, 0.3));
+            }
+            to {
+                filter: drop-shadow(0 0 20px rgba(251, 191, 36, 0.6));
+            }
+        }
+        
+        @keyframes float {
+            0%, 100% {
+                transform: translateY(0px) scale(1);
+                opacity: 0.6;
+            }
+            50% {
+                transform: translateY(-20px) scale(1.1);
+                opacity: 1;
+            }
+        }
+        
+        @keyframes loading-progress {
+            0% {
+                transform: scaleX(0);
+            }
+            30% {
+                transform: scaleX(0.3);
+            }
+            70% {
+                transform: scaleX(0.7);
+            }
+            100% {
+                transform: scaleX(1);
+            }
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .logo-text {
+                font-size: 2.5rem;
+            }
+            
+            .logo-icon {
+                width: 3rem;
+                height: 3rem;
+            }
+            
+            .tagline {
+                font-size: 1.2rem;
+                margin-bottom: 2rem;
+            }
+            
+            .progress-container {
+                width: 250px;
+            }
+            
+            .loading-container {
+                padding: 1rem;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .logo-text {
+                font-size: 2rem;
+            }
+            
+            .tagline {
+                font-size: 1rem;
+            }
+            
+            .progress-container {
+                width: 200px;
+            }
+        }
+        
+        /* Fade out animation for page transition */
+        .fade-out {
+            animation: fadeOut 0.8s ease-out forwards;
+        }
+        
+        @keyframes fadeOut {
+            to {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+        }
+    </style>
+</head>
+<body class="bg-background text-text-primary">
+    <!-- Background Image with Overlay -->
+    <div class="loading-bg"></div>
+    
+    <!-- Sacred Geometry Background -->
+    <div class="sacred-geometry"></div>
+    
+    <!-- Floating Particles -->
+    <div class="particle"></div>
+    <div class="particle"></div>
+    <div class="particle"></div>
+    <div class="particle"></div>
+    
+    <!-- Loading Content -->
+    <div class="loading-container">
+        <!-- Logo matching homepage design -->
+        <div class="logo-container">
+            <svg class="logo-icon text-primary" viewBox="0 0 40 40" fill="currentColor">
+                <circle cx="20" cy="20" r="18" stroke="currentColor" stroke-width="2" fill="none"/>
+                <path d="M12 20 L20 12 L28 20 L20 28 Z" fill="currentColor"/>
+                <circle cx="20" cy="20" r="4" fill="white"/>
+            </svg>
+            <div class="logo-text">Monastery360</div>
+        </div>
+        
+        <!-- Tagline -->
+        <div class="tagline">
+            Discover Sikkim's Sacred Heritage Through<br />Immersive Virtual Reality & Interactive Storytelling
+        </div>
+        
+        <!-- Enhanced Loading Spinner -->
+        <div class="loading-spinner-container">
+            <div class="loading-spinner">
+                <div class="loading-inner"></div>
+            </div>
+        </div>
+        
+        <!-- Loading Text -->
+        <div class="loading-text">Preparing your spiritual journey...</div>
+        
+        <!-- Progress Bar -->
+        <div class="progress-container">
+            <div class="progress-bar"></div>
+        </div>
+    </div>
+
+    <script>
+        // Enhanced loading sequence with multiple phases
+        const loadingTexts = [
+            'Connecting to sacred monasteries...',
+            'Loading virtual reality experiences...',
+            'Preparing cultural heritage content...',
+            'Initializing spiritual journey...',
+            'Almost ready for exploration...'
+        ];
+        
+        let currentTextIndex = 0;
+        const loadingTextElement = document.querySelector('.loading-text');
+        
+        // Update loading text periodically
+        const textInterval = setInterval(() => {
+            if (currentTextIndex < loadingTexts.length - 1) {
+                currentTextIndex++;
+                loadingTextElement.style.opacity = '0';
+                
+                setTimeout(() => {
+                    loadingTextElement.textContent = loadingTexts[currentTextIndex];
+                    loadingTextElement.style.opacity = '1';
+                }, 300);
+            } else {
+                clearInterval(textInterval);
+            }
+        }, 800);
+        
+        // Add entrance animation delay for better visual impact
+        document.addEventListener('DOMContentLoaded', function() {
+            // Create additional floating elements
+            createFloatingElements();
+            
+            // Start the main loading sequence
+            setTimeout(startTransition, 4000);
+        });
+        
+        function createFloatingElements() {
+            // Create more dynamic particles
+            for (let i = 0; i < 6; i++) {
+                const particle = document.createElement('div');
+                particle.className = 'particle';
+                particle.style.width = Math.random() * 4 + 2 + 'px';
+                particle.style.height = particle.style.width;
+                particle.style.top = Math.random() * 100 + '%';
+                particle.style.left = Math.random() * 100 + '%';
+                particle.style.animationDelay = Math.random() * 6 + 's';
+                particle.style.animationDuration = (Math.random() * 4 + 4) + 's';
+                document.body.appendChild(particle);
+            }
+        }
+        
+        function startTransition() {
+            // Add fade out animation
+            document.body.classList.add('fade-out');
+            
+            // Show completion message briefly
+            loadingTextElement.textContent = 'Welcome to your sacred heritage experience!';
+            
+            // Redirect after fade out completes
+            setTimeout(() => {
+                window.location.href = 'pages/homepage.html';
+            }, 1000);
+        }
+        
+        // Add keyboard shortcut to skip loading (for development)
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Enter' || e.key === ' ') {
+                clearInterval(textInterval);
+                startTransition();
+            }
+        });
+        
+        // Add click to skip functionality
+        document.querySelector('.loading-container').addEventListener('click', function() {
+            clearInterval(textInterval);
+            startTransition();
+        });
+        
+        // Preload homepage resources for smoother transition
+        const preloadLink = document.createElement('link');
+        preloadLink.rel = 'prefetch';
+        preloadLink.href = 'pages/homepage.html';
+        document.head.appendChild(preloadLink);
+        
+        // Add some visual feedback on interaction
+        document.querySelector('.loading-spinner').addEventListener('mouseover', function() {
+            this.style.transform = 'scale(1.1)';
+            this.style.filter = 'drop-shadow(0 0 15px rgba(251, 191, 36, 0.8))';
+        });
+        
+        document.querySelector('.loading-spinner').addEventListener('mouseout', function() {
+            this.style.transform = 'scale(1)';
+            this.style.filter = 'none';
+        });
+        
+        // Console message for developers
+        console.log('🏛️ Monastery360 - Sacred Heritage Loading Experience');
+        console.log('✨ Press Enter or Space to skip loading animation');
+        console.log('🔮 Click anywhere to continue to main experience');
+    </script>
+</body>
+</html>

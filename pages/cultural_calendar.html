@@ -1,0 +1,750 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Cultural Calendar - Monastery360</title>
+    <link rel="stylesheet" href="../css/main.css" />
+    <meta name="description" content="Discover and participate in Sikkim's sacred monastery events, festivals, and rituals through our comprehensive cultural calendar with live streaming and virtual participation." />
+</head>
+<body class="bg-background text-text-primary">
+    <!-- Navigation Header -->
+    <header class="bg-surface shadow-subtle sticky top-0 z-50">
+        <nav class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <!-- Logo -->
+                <div class="flex items-center">
+                    <svg class="h-10 w-10 text-primary" viewBox="0 0 40 40" fill="currentColor">
+                        <circle cx="20" cy="20" r="18" stroke="currentColor" stroke-width="2" fill="none"/>
+                        <path d="M12 20 L20 12 L28 20 L20 28 Z" fill="currentColor"/>
+                        <circle cx="20" cy="20" r="4" fill="white"/>
+                    </svg>
+                    <span class="ml-3 text-xl font-crimson font-semibold text-primary">Monastery360</span>
+                </div>
+                
+                <!-- Desktop Navigation -->
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="homepage.html" class="text-text-secondary hover:text-primary transition-colors duration-300">Home</a>
+                    <a href="virtual_tours.html" class="text-text-secondary hover:text-primary transition-colors duration-300">Virtual Tours</a>
+                    <a href="digital_archive.html" class="text-text-secondary hover:text-primary transition-colors duration-300">Digital Archive</a>
+                    <a href="cultural_calendar.html" class="text-primary font-medium border-b-2 border-primary pb-1">Cultural Calendar</a>
+                    <a href="educational_resources.html" class="text-text-secondary hover:text-primary transition-colors duration-300">Education</a>
+                    <a href="travel_planning.html" class="text-text-secondary hover:text-primary transition-colors duration-300">Travel Planning</a>
+                </div>
+
+                <!-- Mobile Menu Button -->
+                <div class="md:hidden">
+                    <button id="mobile-menu-btn" class="text-text-secondary hover:text-primary">
+                        <svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Mobile Navigation Menu -->
+            <div id="mobile-menu" class="md:hidden hidden bg-surface-50 border-t border-surface-300">
+                <div class="px-2 pt-2 pb-3 space-y-1">
+                    <a href="homepage.html" class="block px-3 py-2 text-text-secondary hover:text-primary hover:bg-surface-100 rounded-md transition-colors duration-300">Home</a>
+                    <a href="virtual_tours.html" class="block px-3 py-2 text-text-secondary hover:text-primary hover:bg-surface-100 rounded-md transition-colors duration-300">Virtual Tours</a>
+                    <a href="digital_archive.html" class="block px-3 py-2 text-text-secondary hover:text-primary hover:bg-surface-100 rounded-md transition-colors duration-300">Digital Archive</a>
+                    <a href="cultural_calendar.html" class="block px-3 py-2 text-primary font-medium bg-primary-50 rounded-md">Cultural Calendar</a>
+                    <a href="educational_resources.html" class="block px-3 py-2 text-text-secondary hover:text-primary hover:bg-surface-100 rounded-md transition-colors duration-300">Education</a>
+                    <a href="travel_planning.html" class="block px-3 py-2 text-text-secondary hover:text-primary hover:bg-surface-100 rounded-md transition-colors duration-300">Travel Planning</a>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="relative py-16 bg-gradient-to-br from-primary to-secondary text-white overflow-hidden">
+        <div class="absolute inset-0">
+            <img src="https://images.pexels.com/photos/1051838/pexels-photo-1051838.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" alt="Monastery festival celebration" class="w-full h-full object-cover opacity-20" onerror="this.src='https://images.unsplash.com/photo-1544735716-392fe2489ffa?q=80&w=2940&auto=format&fit=crop'; this.onerror=null;" />
+        </div>
+        <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <h1 class="text-5xl md:text-6xl font-crimson font-semibold mb-6">Sacred Cultural Calendar</h1>
+            <p class="text-xl md:text-2xl mb-8 max-w-3xl mx-auto font-light">
+                Connect with Sikkim's living spiritual traditions through live monastery events, ancient festivals, and virtual participation opportunities
+            </p>
+            <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                <button id="live-events-btn" class="bg-accent text-white px-8 py-4 rounded-lg font-lato font-medium hover:bg-accent-600 transition-all duration-300">
+                    View Live Events
+                </button>
+                <button id="sync-calendar-btn" class="bg-white/20 backdrop-blur-sm text-white px-8 py-4 rounded-lg font-lato font-medium hover:bg-white/30 transition-all duration-300">
+                    Sync to Calendar
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Live Events Ticker -->
+    <section class="py-4 bg-accent text-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-center space-x-8 text-sm font-medium">
+                <div class="flex items-center">
+                    <div class="w-2 h-2 bg-white rounded-full mr-2 animate-pulse"></div>
+                    <span>LIVE NOW: Morning Prayers at Rumtek Monastery</span>
+                </div>
+                <div class="hidden md:flex items-center">
+                    <svg class="w-4 h-4 mr-2" fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+                    </svg>
+                    <span>Next: Tashiding Evening Chanting in 2 hours</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Calendar Controls & Filters -->
+    <section class="py-8 bg-surface">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col lg:flex-row gap-6 items-center justify-between">
+                <!-- Calendar Navigation -->
+                <div class="flex items-center space-x-4">
+                    <button id="prev-month" class="p-2 text-text-secondary hover:text-primary transition-colors duration-300">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/>
+                        </svg>
+                    </button>
+                    <h2 id="current-month" class="text-2xl font-crimson font-semibold text-primary">December 2025</h2>
+                    <button id="next-month" class="p-2 text-text-secondary hover:text-primary transition-colors duration-300">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+                        </svg>
+                    </button>
+                </div>
+
+                <!-- Filters -->
+                <div class="flex flex-wrap gap-4">
+                    <select id="event-type-filter" class="px-4 py-2 border border-surface-300 rounded-lg bg-white text-text-primary focus:ring-2 focus:ring-primary-300 focus:border-primary">
+                        <option value="all">All Events</option>
+                        <option value="festival">Festivals</option>
+                        <option value="ritual">Daily Rituals</option>
+                        <option value="meditation">Meditation Sessions</option>
+                        <option value="teaching">Teachings</option>
+                        <option value="ceremony">Ceremonies</option>
+                    </select>
+                    
+                    <select id="monastery-filter" class="px-4 py-2 border border-surface-300 rounded-lg bg-white text-text-primary focus:ring-2 focus:ring-primary-300 focus:border-primary">
+                        <option value="all">All Monasteries</option>
+                        <option value="rumtek">Rumtek Monastery</option>
+                        <option value="enchey">Enchey Monastery</option>
+                        <option value="tashiding">Tashiding Monastery</option>
+                        <option value="pemayangtse">Pemayangtse Monastery</option>
+                    </select>
+
+                    <button id="filter-reset" class="px-4 py-2 text-accent hover:text-accent-600 font-medium transition-colors duration-300">
+                        <svg class="w-4 h-4 inline mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"/>
+                        </svg>
+                        Reset Filters
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Calendar Grid -->
+    <section class="py-8 bg-background">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <!-- Calendar Header -->
+            <div class="grid grid-cols-7 gap-1 mb-4">
+                <div class="p-3 text-center text-sm font-medium text-text-secondary">Sun</div>
+                <div class="p-3 text-center text-sm font-medium text-text-secondary">Mon</div>
+                <div class="p-3 text-center text-sm font-medium text-text-secondary">Tue</div>
+                <div class="p-3 text-center text-sm font-medium text-text-secondary">Wed</div>
+                <div class="p-3 text-center text-sm font-medium text-text-secondary">Thu</div>
+                <div class="p-3 text-center text-sm font-medium text-text-secondary">Fri</div>
+                <div class="p-3 text-center text-sm font-medium text-text-secondary">Sat</div>
+            </div>
+
+            <!-- Calendar Days -->
+            <div class="grid grid-cols-7 gap-1">
+                <!-- Previous Month Days -->
+                <div class="p-2 h-24 bg-surface-100 text-text-muted text-sm">
+                    <div class="text-right">29</div>
+                </div>
+                <div class="p-2 h-24 bg-surface-100 text-text-muted text-sm">
+                    <div class="text-right">30</div>
+                </div>
+
+                <!-- Current Month Days -->
+                <div class="p-2 h-24 bg-white border border-surface-300 hover:bg-surface-50 transition-colors duration-300 cursor-pointer">
+                    <div class="text-right text-sm font-medium">1</div>
+                </div>
+                <div class="p-2 h-24 bg-white border border-surface-300 hover:bg-surface-50 transition-colors duration-300 cursor-pointer">
+                    <div class="text-right text-sm font-medium">2</div>
+                </div>
+                <div class="p-2 h-24 bg-white border border-surface-300 hover:bg-surface-50 transition-colors duration-300 cursor-pointer">
+                    <div class="text-right text-sm font-medium">3</div>
+                </div>
+                <div class="p-2 h-24 bg-white border border-surface-300 hover:bg-surface-50 transition-colors duration-300 cursor-pointer">
+                    <div class="text-right text-sm font-medium">4</div>
+                </div>
+                <div class="p-2 h-24 bg-white border border-surface-300 hover:bg-surface-50 transition-colors duration-300 cursor-pointer">
+                    <div class="text-right text-sm font-medium">5</div>
+                </div>
+
+                <!-- Week 2 -->
+                <div class="p-2 h-24 bg-white border border-surface-300 hover:bg-surface-50 transition-colors duration-300 cursor-pointer">
+                    <div class="text-right text-sm font-medium">6</div>
+                </div>
+                <div class="p-2 h-24 bg-white border border-surface-300 hover:bg-surface-50 transition-colors duration-300 cursor-pointer">
+                    <div class="text-right text-sm font-medium">7</div>
+                </div>
+                <div class="p-2 h-24 bg-white border border-surface-300 hover:bg-surface-50 transition-colors duration-300 cursor-pointer">
+                    <div class="text-right text-sm font-medium">8</div>
+                </div>
+                <div class="p-2 h-24 bg-white border border-surface-300 hover:bg-surface-50 transition-colors duration-300 cursor-pointer">
+                    <div class="text-right text-sm font-medium">9</div>
+                </div>
+                <div class="p-2 h-24 bg-white border border-surface-300 hover:bg-surface-50 transition-colors duration-300 cursor-pointer">
+                    <div class="text-right text-sm font-medium">10</div>
+                </div>
+                <div class="p-2 h-24 bg-white border border-surface-300 hover:bg-surface-50 transition-colors duration-300 cursor-pointer">
+                    <div class="text-right text-sm font-medium">11</div>
+                </div>
+                <div class="p-2 h-24 bg-white border border-surface-300 hover:bg-surface-50 transition-colors duration-300 cursor-pointer">
+                    <div class="text-right text-sm font-medium">12</div>
+                </div>
+
+                <!-- Week 3 -->
+                <div class="p-2 h-24 bg-white border border-surface-300 hover:bg-surface-50 transition-colors duration-300 cursor-pointer">
+                    <div class="text-right text-sm font-medium">13</div>
+                </div>
+                <div class="p-2 h-24 bg-white border border-surface-300 hover:bg-surface-50 transition-colors duration-300 cursor-pointer">
+                    <div class="text-right text-sm font-medium">14</div>
+                </div>
+                <div class="p-2 h-24 bg-white border border-surface-300 hover:bg-surface-50 transition-colors duration-300 cursor-pointer">
+                    <div class="text-right text-sm font-medium">15</div>
+                </div>
+                <div class="p-2 h-24 bg-white border border-surface-300 hover:bg-surface-50 transition-colors duration-300 cursor-pointer">
+                    <div class="text-right text-sm font-medium">16</div>
+                </div>
+                <div class="p-2 h-24 bg-white border border-surface-300 hover:bg-surface-50 transition-colors duration-300 cursor-pointer">
+                    <div class="text-right text-sm font-medium">17</div>
+                </div>
+                <div class="p-2 h-24 bg-white border border-surface-300 hover:bg-surface-50 transition-colors duration-300 cursor-pointer">
+                    <div class="text-right text-sm font-medium">18</div>
+                </div>
+                <div class="p-2 h-24 bg-white border border-surface-300 hover:bg-surface-50 transition-colors duration-300 cursor-pointer">
+                    <div class="text-right text-sm font-medium">19</div>
+                </div>
+
+                <!-- Week 4 -->
+                <div class="p-2 h-24 bg-white border border-surface-300 hover:bg-surface-50 transition-colors duration-300 cursor-pointer">
+                    <div class="text-right text-sm font-medium">20</div>
+                </div>
+                <!-- Today - December 21 -->
+                <div class="p-2 h-24 bg-primary-50 border-2 border-primary hover:bg-primary-100 transition-colors duration-300 cursor-pointer">
+                    <div class="text-right text-sm font-bold text-primary">21</div>
+                    <div class="mt-1">
+                        <div class="text-xs bg-accent text-white px-1 rounded mb-1">LIVE</div>
+                        <div class="text-xs text-primary truncate">Winter Solstice</div>
+                    </div>
+                </div>
+                <!-- December 22 - Tomorrow -->
+                <div class="p-2 h-24 bg-white border border-surface-300 hover:bg-surface-50 transition-colors duration-300 cursor-pointer">
+                    <div class="text-right text-sm font-medium">22</div>
+                    <div class="mt-1">
+                        <div class="text-xs bg-secondary text-white px-1 rounded mb-1">6AM</div>
+                        <div class="text-xs text-text-secondary truncate">Morning Prayers</div>
+                    </div>
+                </div>
+                <div class="p-2 h-24 bg-white border border-surface-300 hover:bg-surface-50 transition-colors duration-300 cursor-pointer">
+                    <div class="text-right text-sm font-medium">23</div>
+                </div>
+                <div class="p-2 h-24 bg-white border border-surface-300 hover:bg-surface-50 transition-colors duration-300 cursor-pointer">
+                    <div class="text-right text-sm font-medium">24</div>
+                </div>
+                <!-- December 25 - Christmas/Tsechu Festival -->
+                <div class="p-2 h-24 bg-white border border-surface-300 hover:bg-surface-50 transition-colors duration-300 cursor-pointer">
+                    <div class="text-right text-sm font-medium">25</div>
+                    <div class="mt-1">
+                        <div class="text-xs bg-warning text-white px-1 rounded mb-1">9AM</div>
+                        <div class="text-xs text-text-secondary truncate">Tsechu Festival</div>
+                    </div>
+                </div>
+                <div class="p-2 h-24 bg-white border border-surface-300 hover:bg-surface-50 transition-colors duration-300 cursor-pointer">
+                    <div class="text-right text-sm font-medium">26</div>
+                </div>
+
+                <!-- Week 5 -->
+                <div class="p-2 h-24 bg-white border border-surface-300 hover:bg-surface-50 transition-colors duration-300 cursor-pointer">
+                    <div class="text-right text-sm font-medium">27</div>
+                </div>
+                <div class="p-2 h-24 bg-white border border-surface-300 hover:bg-surface-50 transition-colors duration-300 cursor-pointer">
+                    <div class="text-right text-sm font-medium">28</div>
+                </div>
+                <div class="p-2 h-24 bg-white border border-surface-300 hover:bg-surface-50 transition-colors duration-300 cursor-pointer">
+                    <div class="text-right text-sm font-medium">29</div>
+                </div>
+                <div class="p-2 h-24 bg-white border border-surface-300 hover:bg-surface-50 transition-colors duration-300 cursor-pointer">
+                    <div class="text-right text-sm font-medium">30</div>
+                </div>
+                <div class="p-2 h-24 bg-white border border-surface-300 hover:bg-surface-50 transition-colors duration-300 cursor-pointer">
+                    <div class="text-right text-sm font-medium">31</div>
+                    <div class="mt-1">
+                        <div class="text-xs bg-success text-white px-1 rounded mb-1">11PM</div>
+                        <div class="text-xs text-text-secondary truncate">New Year Eve</div>
+                    </div>
+                </div>
+
+                <!-- Next Month Days -->
+                <div class="p-2 h-24 bg-surface-100 text-text-muted text-sm">
+                    <div class="text-right">1</div>
+                </div>
+                <div class="p-2 h-24 bg-surface-100 text-text-muted text-sm">
+                    <div class="text-right">2</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Upcoming Events List -->
+    <section class="py-16 bg-surface">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between mb-8">
+                <h2 class="text-3xl font-crimson font-semibold text-primary">Upcoming Sacred Events</h2>
+                <div class="flex items-center space-x-4">
+                    <button class="text-accent hover:text-accent-600 font-medium text-sm transition-colors duration-300">
+                        <svg class="w-4 h-4 inline mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/>
+                        </svg>
+                        Export Calendar
+                    </button>
+                    <button class="text-accent hover:text-accent-600 font-medium text-sm transition-colors duration-300">
+                        <svg class="w-4 h-4 inline mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 17h5l-5 5v-5zM4 19h6v-6H4v6zM16 3H4a1 1 0 00-1 1v12a1 1 0 001 1h4V9h9V4a1 1 0 00-1-1z"/>
+                        </svg>
+                        Subscribe to Updates
+                    </button>
+                </div>
+            </div>
+
+            <div class="grid lg:grid-cols-3 gap-8">
+                <!-- Today's Events -->
+                <div class="lg:col-span-2">
+                    <h3 class="text-xl font-crimson font-semibold text-primary mb-6">Today's Events - December 21, 2025</h3>
+                    <div class="space-y-4">
+                        <!-- Live Event -->
+                        <div class="card-gentle border-l-4 border-accent">
+                            <div class="flex items-start justify-between">
+                                <div class="flex-1">
+                                    <div class="flex items-center mb-2">
+                                        <div class="flex items-center bg-accent text-white px-2 py-1 rounded-full text-xs font-medium mr-3">
+                                            <div class="w-2 h-2 bg-white rounded-full mr-1 animate-pulse"></div>
+                                            LIVE NOW
+                                        </div>
+                                        <span class="text-sm text-text-muted">6:00 AM - 8:00 AM IST</span>
+                                    </div>
+                                    <h4 class="text-lg font-crimson font-semibold text-primary mb-2">Winter Solstice Prayers</h4>
+                                    <p class="text-text-secondary mb-3">Special meditation and chanting ceremony marking the longest night of the year at Enchey Monastery</p>
+                                    <div class="flex items-center text-sm text-text-muted mb-3">
+                                        <svg class="w-4 h-4 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/>
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/>
+                                        </svg>
+                                        Enchey Monastery, Gangtok
+                                    </div>
+                                    <div class="flex items-center space-x-4">
+                                        <button class="btn-accent text-sm px-4 py-2">Join Live Stream</button>
+                                        <button class="text-accent hover:text-accent-600 font-medium text-sm transition-colors duration-300">
+                                            <svg class="w-4 h-4 inline mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"/>
+                                            </svg>
+                                            Save Event
+                                        </button>
+                                    </div>
+                                </div>
+                                <img src="https://images.pixabay.com/photos/2019/03/25/22/52/monastery-4081150_1280.jpg" alt="Enchey Monastery" class="w-20 h-20 rounded-lg object-cover ml-4" onerror="this.src='https://images.unsplash.com/photo-1544735716-392fe2489ffa?q=80&w=2940&auto=format&fit=crop'; this.onerror=null;" />
+                            </div>
+                        </div>
+
+                        <!-- Scheduled Event -->
+                        <div class="card-gentle border-l-4 border-secondary">
+                            <div class="flex items-start justify-between">
+                                <div class="flex-1">
+                                    <div class="flex items-center mb-2">
+                                        <div class="bg-secondary text-white px-2 py-1 rounded-full text-xs font-medium mr-3">
+                                            STARTS IN 2 HOURS
+                                        </div>
+                                        <span class="text-sm text-text-muted">6:00 PM - 8:00 PM IST</span>
+                                    </div>
+                                    <h4 class="text-lg font-crimson font-semibold text-primary mb-2">Evening Chanting Session</h4>
+                                    <p class="text-text-secondary mb-3">Traditional evening prayers and meditation practice at Tashiding Monastery</p>
+                                    <div class="flex items-center text-sm text-text-muted mb-3">
+                                        <svg class="w-4 h-4 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/>
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/>
+                                        </svg>
+                                        Tashiding Monastery, West Sikkim
+                                    </div>
+                                    <div class="flex items-center space-x-4">
+                                        <button class="btn-secondary text-sm px-4 py-2">Set Reminder</button>
+                                        <button class="text-accent hover:text-accent-600 font-medium text-sm transition-colors duration-300">
+                                            <svg class="w-4 h-4 inline mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8.684 13.342C8.886 12.938 9 12.482 9 12c0-.482-.114-.938-.316-1.342m0 2.684a3 3 0 110-2.684m0 2.684l6.632 3.316m-6.632-6l6.632-3.316m0 0a3 3 0 105.367-2.684 3 3 0 00-5.367 2.684zm0 9.316a3 3 0 105.367 2.684 3 3 0 00-5.367-2.684z"/>
+                                            </svg>
+                                            Share
+                                        </button>
+                                    </div>
+                                </div>
+                                <img src="https://images.pexels.com/photos/1051838/pexels-photo-1051838.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" alt="Tashiding Monastery" class="w-20 h-20 rounded-lg object-cover ml-4" onerror="this.src='https://images.pixabay.com/photos/2019/03/25/22/52/monastery-4081150_1280.jpg'; this.onerror=null;" />
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Tomorrow's Events -->
+                    <h3 class="text-xl font-crimson font-semibold text-primary mb-6 mt-12">Tomorrow - December 22, 2025</h3>
+                    <div class="space-y-4">
+                        <div class="card-gentle border-l-4 border-primary">
+                            <div class="flex items-start justify-between">
+                                <div class="flex-1">
+                                    <div class="flex items-center mb-2">
+                                        <div class="bg-primary text-white px-2 py-1 rounded-full text-xs font-medium mr-3">
+                                            TOMORROW
+                                        </div>
+                                        <span class="text-sm text-text-muted">6:00 AM - 8:00 AM IST</span>
+                                    </div>
+                                    <h4 class="text-lg font-crimson font-semibold text-primary mb-2">Morning Meditation & Prayers</h4>
+                                    <p class="text-text-secondary mb-3">Daily morning practice open to virtual participants from around the world</p>
+                                    <div class="flex items-center text-sm text-text-muted mb-3">
+                                        <svg class="w-4 h-4 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/>
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/>
+                                        </svg>
+                                        Rumtek Monastery, East Sikkim
+                                    </div>
+                                    <div class="flex items-center space-x-4">
+                                        <button class="btn-primary text-sm px-4 py-2">Register to Join</button>
+                                        <button class="text-accent hover:text-accent-600 font-medium text-sm transition-colors duration-300">
+                                            Add to Calendar
+                                        </button>
+                                    </div>
+                                </div>
+                                <img src="https://images.unsplash.com/photo-1544735716-392fe2489ffa?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Rumtek Monastery" class="w-20 h-20 rounded-lg object-cover ml-4" onerror="this.src='https://images.pexels.com/photos/1051838/pexels-photo-1051838.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2'; this.onerror=null;" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Sidebar -->
+                <div class="space-y-8">
+                    <!-- Time Zone Converter -->
+                    <div class="card-gentle">
+                        <h3 class="text-lg font-crimson font-semibold text-primary mb-4">Time Zone Converter</h3>
+                        <div class="space-y-3">
+                            <div class="flex justify-between items-center">
+                                <span class="text-sm text-text-secondary">Your Local Time</span>
+                                <span class="font-medium" id="local-time">4:08 PM</span>
+                            </div>
+                            <div class="flex justify-between items-center">
+                                <span class="text-sm text-text-secondary">Sikkim Time (IST)</span>
+                                <span class="font-medium text-primary" id="sikkim-time">4:08 PM</span>
+                            </div>
+                            <div class="pt-2 border-t border-surface-300">
+                                <select class="w-full px-3 py-2 border border-surface-300 rounded-lg bg-white text-text-primary focus:ring-2 focus:ring-primary-300 focus:border-primary text-sm">
+                                    <option>Select Your Timezone</option>
+                                    <option>UTC-8 (PST)</option>
+                                    <option>UTC-5 (EST)</option>
+                                    <option>UTC+0 (GMT)</option>
+                                    <option>UTC+1 (CET)</option>
+                                    <option>UTC+8 (CST)</option>
+                                    <option>UTC+9 (JST)</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Quick Actions -->
+                    <div class="card-gentle">
+                        <h3 class="text-lg font-crimson font-semibold text-primary mb-4">Quick Actions</h3>
+                        <div class="space-y-3">
+                            <button class="w-full text-left px-4 py-3 bg-surface-100 hover:bg-surface-200 rounded-lg transition-colors duration-300">
+                                <div class="flex items-center">
+                                    <svg class="w-5 h-5 text-accent mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 17h5l-5 5v-5zM4 19h6v-6H4v6zM16 3H4a1 1 0 00-1 1v12a1 1 0 001 1h4V9h9V4a1 1 0 00-1-1z"/>
+                                    </svg>
+                                    <span class="text-sm font-medium">Subscribe to Newsletter</span>
+                                </div>
+                            </button>
+                            <button class="w-full text-left px-4 py-3 bg-surface-100 hover:bg-surface-200 rounded-lg transition-colors duration-300">
+                                <div class="flex items-center">
+                                    <svg class="w-5 h-5 text-accent mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z"/>
+                                    </svg>
+                                    <span class="text-sm font-medium">Download Mobile App</span>
+                                </div>
+                            </button>
+                            <a href="travel_planning.html" class="block w-full text-left px-4 py-3 bg-surface-100 hover:bg-surface-200 rounded-lg transition-colors duration-300">
+                                <div class="flex items-center">
+                                    <svg class="w-5 h-5 text-accent mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 20l-5.447-2.724A1 1 0 013 16.382V5.618a1 1 0 011.447-.894L9 7m0 13l6-3m-6 3V7m6 10l4.553 2.276A1 1 0 0021 18.382V7.618a1 1 0 00-1.447-.894L15 4m0 13V4m0 0L9 7"/>
+                                    </svg>
+                                    <span class="text-sm font-medium">Plan Your Visit</span>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Event Statistics -->
+                    <div class="card-gentle">
+                        <h3 class="text-lg font-crimson font-semibold text-primary mb-4">This Month</h3>
+                        <div class="space-y-4">
+                            <div class="flex justify-between items-center">
+                                <span class="text-sm text-text-secondary">Total Events</span>
+                                <span class="text-2xl font-crimson font-semibold text-primary">47</span>
+                            </div>
+                            <div class="flex justify-between items-center">
+                                <span class="text-sm text-text-secondary">Live Streams</span>
+                                <span class="text-2xl font-crimson font-semibold text-accent">12</span>
+                            </div>
+                            <div class="flex justify-between items-center">
+                                <span class="text-sm text-text-secondary">Festivals</span>
+                                <span class="text-2xl font-crimson font-semibold text-secondary">3</span>
+                            </div>
+                            <div class="pt-3 border-t border-surface-300">
+                                <div class="text-xs text-text-muted">
+                                    <span class="text-success">↗ 23%</span> more events than last month
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Major Festivals Preview -->
+    <section class="py-16 bg-gradient-to-r from-secondary to-primary text-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <h2 class="text-4xl font-crimson font-semibold mb-4">Major Festivals Coming Up</h2>
+                <p class="text-lg text-secondary-100 max-w-2xl mx-auto">
+                    Don't miss these significant cultural celebrations that define Sikkim's spiritual calendar
+                </p>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-8">
+                <!-- Tsechu Festival -->
+                <div class="bg-secondary-600 rounded-lg p-6 hover:bg-secondary-700 transition-colors duration-300">
+                    <div class="flex items-center justify-between mb-4">
+                        <span class="bg-warning text-white px-3 py-1 rounded-full text-sm font-medium">Dec 25</span>
+                        <span class="text-secondary-200 text-sm">4 days away</span>
+                    </div>
+                    <h3 class="text-xl font-crimson font-semibold mb-2">Tsechu Festival</h3>
+                    <p class="text-secondary-100 mb-4">Sacred mask dances and blessings at Rumtek Monastery celebrating Buddhist teachings</p>
+                    <div class="flex items-center justify-between">
+                        <span class="text-secondary-200 text-sm">9:00 AM - 5:00 PM</span>
+                        <button class="text-accent hover:text-accent-300 font-medium text-sm transition-colors duration-300">Learn More →</button>
+                    </div>
+                </div>
+
+                <!-- Losar Celebration -->
+                <div class="bg-secondary-600 rounded-lg p-6 hover:bg-secondary-700 transition-colors duration-300">
+                    <div class="flex items-center justify-between mb-4">
+                        <span class="bg-success text-white px-3 py-1 rounded-full text-sm font-medium">Jan 15</span>
+                        <span class="text-secondary-200 text-sm">25 days away</span>
+                    </div>
+                    <h3 class="text-xl font-crimson font-semibold mb-2">Losar Celebration</h3>
+                    <p class="text-secondary-100 mb-4">Tibetan New Year festivities across all monasteries with traditional ceremonies</p>
+                    <div class="flex items-center justify-between">
+                        <span class="text-secondary-200 text-sm">All Day Event</span>
+                        <button class="text-accent hover:text-accent-300 font-medium text-sm transition-colors duration-300">Set Reminder →</button>
+                    </div>
+                </div>
+
+                <!-- Buddha Purnima -->
+                <div class="bg-secondary-600 rounded-lg p-6 hover:bg-secondary-700 transition-colors duration-300">
+                    <div class="flex items-center justify-between mb-4">
+                        <span class="bg-primary text-white px-3 py-1 rounded-full text-sm font-medium">May 12</span>
+                        <span class="text-secondary-200 text-sm">142 days away</span>
+                    </div>
+                    <h3 class="text-xl font-crimson font-semibold mb-2">Buddha Purnima</h3>
+                    <p class="text-secondary-100 mb-4">Celebrating the birth, enlightenment, and death of Buddha with special prayers</p>
+                    <div class="flex items-center justify-between">
+                        <span class="text-secondary-200 text-sm">Dawn to Dusk</span>
+                        <button class="text-accent hover:text-accent-300 font-medium text-sm transition-colors duration-300">Add to Calendar →</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Community Engagement -->
+    <section class="py-16 bg-background">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <h2 class="text-4xl font-crimson font-semibold text-primary mb-4">Join Our Global Community</h2>
+                <p class="text-lg text-text-secondary max-w-2xl mx-auto">
+                    Connect with fellow spiritual seekers and share your monastery experiences
+                </p>
+            </div>
+
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Virtual Meditation Sessions -->
+                <div class="card-gentle text-center">
+                    <div class="w-16 h-16 bg-primary-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <svg class="w-8 h-8 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"/>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-crimson font-semibold text-primary mb-3">Virtual Meditation</h3>
+                    <p class="text-text-secondary mb-4">Join daily meditation sessions with monks from various monasteries</p>
+                    <div class="text-sm text-text-muted mb-4">2,847 participants this month</div>
+                    <button class="btn-primary text-sm px-6 py-2">Join Next Session</button>
+                </div>
+
+                <!-- Cultural Discussions -->
+                <div class="card-gentle text-center">
+                    <div class="w-16 h-16 bg-secondary-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <svg class="w-8 h-8 text-secondary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8h2a2 2 0 012 2v6a2 2 0 01-2 2h-2v4l-4-4H9a1.994 1.994 0 01-1.414-.586m0 0L11 14h4a2 2 0 002-2V6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2v4l.586-.586z"/>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-crimson font-semibold text-primary mb-3">Community Forum</h3>
+                    <p class="text-text-secondary mb-4">Share experiences and learn from fellow cultural enthusiasts</p>
+                    <div class="text-sm text-text-muted mb-4">1,234 active discussions</div>
+                    <button class="btn-secondary text-sm px-6 py-2">Join Discussions</button>
+                </div>
+
+                <!-- Cultural Quizzes -->
+                <div class="card-gentle text-center">
+                    <div class="w-16 h-16 bg-accent-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <svg class="w-8 h-8 text-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"/>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-crimson font-semibold text-primary mb-3">Cultural Quizzes</h3>
+                    <p class="text-text-secondary mb-4">Test your knowledge of Sikkim's monastic traditions and history</p>
+                    <div class="text-sm text-text-muted mb-4">Weekly challenges available</div>
+                    <button class="btn-accent text-sm px-6 py-2">Take Quiz</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-text-primary text-white py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid md:grid-cols-4 gap-8">
+                <!-- Logo & Description -->
+                <div class="md:col-span-2">
+                    <div class="flex items-center mb-4">
+                        <svg class="h-8 w-8 text-accent" viewBox="0 0 40 40" fill="currentColor">
+                            <circle cx="20" cy="20" r="18" stroke="currentColor" stroke-width="2" fill="none"/>
+                            <path d="M12 20 L20 12 L28 20 L20 28 Z" fill="currentColor"/>
+                            <circle cx="20" cy="20" r="4" fill="white"/>
+                        </svg>
+                        <span class="ml-3 text-xl font-crimson font-semibold">Monastery360</span>
+                    </div>
+                    <p class="text-gray-300 mb-4 max-w-md">
+                        Preserving and sharing Sikkim's sacred monastic heritage through innovative digital experiences and community-driven cultural preservation.
+                    </p>
+                    <div class="flex space-x-4">
+                        <a href="javascript:void(0)" class="text-gray-400 hover:text-accent transition-colors duration-300">
+                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M24 4.557c-.883.392-1.832.656-2.828.775 1.017-.609 1.798-1.574 2.165-2.724-.951.564-2.005.974-3.127 1.195-.897-.957-2.178-1.555-3.594-1.555-3.179 0-5.515 2.966-4.797 6.045-4.091-.205-7.719-2.165-10.148-5.144-1.29 2.213-.669 5.108 1.523 6.574-.806-.026-1.566-.247-2.229-.616-.054 2.281 1.581 4.415 3.949 4.89-.693.188-1.452.232-2.224.084.626 1.956 2.444 3.379 4.6 3.419-2.07 1.623-4.678 2.348-7.29 2.04 2.179 1.397 4.768 2.212 7.548 2.212 9.142 0 14.307-7.721 13.995-14.646.962-.695 1.797-1.562 2.457-2.549z"/>
+                            </svg>
+                        </a>
+                        <a href="javascript:void(0)" class="text-gray-400 hover:text-accent transition-colors duration-300">
+                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M22.46 6c-.77.35-1.6.58-2.46.69.88-.53 1.56-1.37 1.88-2.38-.83.5-1.75.85-2.72 1.05C18.37 4.5 17.26 4 16 4c-2.35 0-4.27 1.92-4.27 4.29 0 .34.04.67.11.98C8.28 9.09 5.11 7.38 3 4.79c-.37.63-.58 1.37-.58 2.15 0 1.49.75 2.81 1.91 3.56-.71 0-1.37-.2-1.95-.5v.03c0 2.08 1.48 3.82 3.44 4.21a4.22 4.22 0 0 1-1.93.07 4.28 4.28 0 0 0 4 2.98 8.521 8.521 0 0 1-5.33 1.84c-.34 0-.68-.02-1.02-.06C3.44 20.29 5.7 21 8.12 21 16 21 20.33 14.46 20.33 8.79c0-.19 0-.37-.01-.56.84-.6 1.56-1.36 2.14-2.23z"/>
+                            </svg>
+                        </a>
+                        <a href="javascript:void(0)" class="text-gray-400 hover:text-accent transition-colors duration-300">
+                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M12.017 0C5.396 0 .029 5.367.029 11.987c0 5.079 3.158 9.417 7.618 11.174-.105-.949-.199-2.403.041-3.439.219-.937 1.406-5.957 1.406-5.957s-.359-.72-.359-1.781c0-1.663.967-2.911 2.168-2.911 1.024 0 1.518.769 1.518 1.688 0 1.029-.653 2.567-.992 3.992-.285 1.193.6 2.165 1.775 2.165 2.128 0 3.768-2.245 3.768-5.487 0-2.861-2.063-4.869-5.008-4.869-3.41 0-5.409 2.562-5.409 5.199 0 1.033.394 2.143.889 2.741.099.12.112.225.085.345-.09.375-.293 1.199-.334 1.363-.053.225-.172.271-.402.165-1.495-.69-2.433-2.878-2.433-4.646 0-3.776 2.748-7.252 7.92-7.252 4.158 0 7.392 2.967 7.392 6.923 0 4.135-2.607 7.462-6.233 7.462-1.214 0-2.357-.629-2.75-1.378l-.748 2.853c-.271 1.043-1.002 2.35-1.492 3.146C9.57 23.812 10.763 24.009 12.017 24.009c6.624 0 11.99-5.367 11.99-11.988C24.007 5.367 18.641.001.012.001z"/>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Quick Links -->
+                <div>
+                    <h3 class="text-lg font-crimson font-semibold mb-4">Explore</h3>
+                    <ul class="space-y-2">
+                        <li><a href="virtual_tours.html" class="text-gray-300 hover:text-accent transition-colors duration-300">Virtual Tours</a></li>
+                        <li><a href="digital_archive.html" class="text-gray-300 hover:text-accent transition-colors duration-300">Digital Archive</a></li>
+                        <li><a href="cultural_calendar.html" class="text-gray-300 hover:text-accent transition-colors duration-300">Cultural Calendar</a></li>
+                        <li><a href="educational_resources.html" class="text-gray-300 hover:text-accent transition-colors duration-300">Education</a></li>
+                    </ul>
+                </div>
+
+                <!-- Support -->
+                <div>
+                    <h3 class="text-lg font-crimson font-semibold mb-4">Support</h3>
+                    <ul class="space-y-2">
+                        <li><a href="javascript:void(0)" class="text-gray-300 hover:text-accent transition-colors duration-300">Help Center</a></li>
+                        <li><a href="javascript:void(0)" class="text-gray-300 hover:text-accent transition-colors duration-300">Contact Us</a></li>
+                        <li><a href="javascript:void(0)" class="text-gray-300 hover:text-accent transition-colors duration-300">Privacy Policy</a></li>
+                        <li><a href="javascript:void(0)" class="text-gray-300 hover:text-accent transition-colors duration-300">Terms of Service</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="border-t border-gray-700 mt-8 pt-8 text-center">
+                <p class="text-gray-400">© 2025 Monastery360. All Rights Reserved. Preserving sacred heritage through digital innovation.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Mobile Menu Script -->
+    <script>
+        document.getElementById('mobile-menu-btn').addEventListener('click', function() {
+            const mobileMenu = document.getElementById('mobile-menu');
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // Update time displays
+        function updateTime() {
+            const now = new Date();
+            const localTime = now.toLocaleTimeString('en-US', { 
+                hour: 'numeric', 
+                minute: '2-digit',
+                hour12: true 
+            });
+            const sikkimTime = now.toLocaleTimeString('en-US', { 
+                timeZone: 'Asia/Kolkata',
+                hour: 'numeric', 
+                minute: '2-digit',
+                hour12: true 
+            });
+            
+            document.getElementById('local-time').textContent = localTime;
+            document.getElementById('sikkim-time').textContent = sikkimTime;
+        }
+
+        // Update time every minute
+        updateTime();
+        setInterval(updateTime, 60000);
+
+        // Calendar navigation
+        document.getElementById('prev-month').addEventListener('click', function() {
+            // Previous month logic would go here
+            console.log('Previous month clicked');
+        });
+
+        document.getElementById('next-month').addEventListener('click', function() {
+            // Next month logic would go here
+            console.log('Next month clicked');
+        });
+
+        // Filter functionality
+        document.getElementById('event-type-filter').addEventListener('change', function() {
+            console.log('Event type filter changed:', this.value);
+        });
+
+        document.getElementById('monastery-filter').addEventListener('change', function() {
+            console.log('Monastery filter changed:', this.value);
+        });
+
+        document.getElementById('filter-reset').addEventListener('click', function() {
+            document.getElementById('event-type-filter').value = 'all';
+            document.getElementById('monastery-filter').value = 'all';
+            console.log('Filters reset');
+        });
+    </script>
+</body>
+</html>

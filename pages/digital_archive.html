@@ -1,0 +1,624 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Digital Archive - Monastery360</title>
+    <link rel="stylesheet" href="../css/main.css" />
+    <meta name="description" content="Explore Sikkim's monastic heritage through our AI-powered digital archive featuring searchable manuscripts, murals, and historical documents with advanced research tools." />
+</head>
+<body class="bg-background text-text-primary">
+    <!-- Navigation Header -->
+    <header class="bg-surface shadow-subtle sticky top-0 z-50">
+        <nav class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <!-- Logo -->
+                <div class="flex items-center">
+                    <svg class="h-10 w-10 text-primary" viewBox="0 0 40 40" fill="currentColor">
+                        <circle cx="20" cy="20" r="18" stroke="currentColor" stroke-width="2" fill="none"/>
+                        <path d="M12 20 L20 12 L28 20 L20 28 Z" fill="currentColor"/>
+                        <circle cx="20" cy="20" r="4" fill="white"/>
+                    </svg>
+                    <span class="ml-3 text-xl font-crimson font-semibold text-primary">Monastery360</span>
+                </div>
+                
+                <!-- Desktop Navigation -->
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="homepage.html" class="text-text-secondary hover:text-primary transition-colors duration-300">Home</a>
+                    <a href="virtual_tours.html" class="text-text-secondary hover:text-primary transition-colors duration-300">Virtual Tours</a>
+                    <a href="digital_archive.html" class="text-primary font-medium border-b-2 border-primary pb-1">Digital Archive</a>
+                    <a href="cultural_calendar.html" class="text-text-secondary hover:text-primary transition-colors duration-300">Cultural Calendar</a>
+                    <a href="educational_resources.html" class="text-text-secondary hover:text-primary transition-colors duration-300">Education</a>
+                    <a href="travel_planning.html" class="text-text-secondary hover:text-primary transition-colors duration-300">Travel Planning</a>
+                </div>
+
+                <!-- Mobile Menu Button -->
+                <div class="md:hidden">
+                    <button id="mobile-menu-btn" class="text-text-secondary hover:text-primary">
+                        <svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Mobile Navigation Menu -->
+            <div id="mobile-menu" class="md:hidden hidden bg-surface-50 border-t border-surface-300">
+                <div class="px-2 pt-2 pb-3 space-y-1">
+                    <a href="homepage.html" class="block px-3 py-2 text-text-secondary hover:text-primary hover:bg-surface-100 rounded-md transition-colors duration-300">Home</a>
+                    <a href="virtual_tours.html" class="block px-3 py-2 text-text-secondary hover:text-primary hover:bg-surface-100 rounded-md transition-colors duration-300">Virtual Tours</a>
+                    <a href="digital_archive.html" class="block px-3 py-2 text-primary font-medium bg-primary-50 rounded-md">Digital Archive</a>
+                    <a href="cultural_calendar.html" class="block px-3 py-2 text-text-secondary hover:text-primary hover:bg-surface-100 rounded-md transition-colors duration-300">Cultural Calendar</a>
+                    <a href="educational_resources.html" class="block px-3 py-2 text-text-secondary hover:text-primary hover:bg-surface-100 rounded-md transition-colors duration-300">Education</a>
+                    <a href="travel_planning.html" class="block px-3 py-2 text-text-secondary hover:text-primary hover:bg-surface-100 rounded-md transition-colors duration-300">Travel Planning</a>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="relative py-16 bg-gradient-to-br from-primary-50 to-surface">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <h1 class="text-5xl md:text-6xl font-crimson font-semibold text-primary mb-6">
+                    Digital Archive Vault
+                </h1>
+                <p class="text-xl md:text-2xl text-text-secondary max-w-3xl mx-auto mb-8">
+                    Explore centuries of sacred wisdom through our AI-powered archive featuring searchable manuscripts, murals, and historical documents from Sikkim's monasteries
+                </p>
+                <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                    <button class="btn-primary text-lg px-8 py-4" onclick="document.getElementById('search-section').scrollIntoView({behavior: 'smooth'})">
+                        Start Exploring
+                    </button>
+                    <a href="educational_resources.html" class="bg-secondary text-white px-8 py-4 rounded-lg font-lato font-medium hover:bg-secondary-600 transition-all duration-300">
+                        Research Resources
+                    </a>
+                </div>
+            </div>
+
+            <!-- Archive Stats -->
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-8 mt-16">
+                <div class="text-center">
+                    <div class="text-3xl font-crimson font-semibold text-primary mb-2">1,247</div>
+                    <div class="text-text-secondary">Manuscripts</div>
+                </div>
+                <div class="text-center">
+                    <div class="text-3xl font-crimson font-semibold text-primary mb-2">3,892</div>
+                    <div class="text-text-secondary">Historical Images</div>
+                </div>
+                <div class="text-center">
+                    <div class="text-3xl font-crimson font-semibold text-primary mb-2">156</div>
+                    <div class="text-text-secondary">Research Papers</div>
+                </div>
+                <div class="text-center">
+                    <div class="text-3xl font-crimson font-semibold text-primary mb-2">89</div>
+                    <div class="text-text-secondary">Collaborating Scholars</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- AI-Powered Search Section -->
+    <section id="search-section" class="py-16 bg-background">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <h2 class="text-4xl font-crimson font-semibold text-primary mb-4">AI-Powered Search Engine</h2>
+                <p class="text-lg text-text-secondary max-w-2xl mx-auto">
+                    Discover ancient wisdom with intelligent categorization, semantic search, and personalized recommendations
+                </p>
+            </div>
+
+            <!-- Search Interface -->
+            <div class="card-gentle max-w-4xl mx-auto mb-12">
+                <div class="relative mb-6">
+                    <input type="text" placeholder="Search manuscripts, murals, historical documents..." class="w-full px-6 py-4 text-lg border border-surface-300 rounded-lg focus:ring-2 focus:ring-primary-300 focus:border-primary transition-all duration-300" />
+                    <button class="absolute right-3 top-1/2 transform -translate-y-1/2 text-primary hover:text-primary-600">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/>
+                        </svg>
+                    </button>
+                </div>
+
+                <!-- Advanced Filters -->
+                <div class="grid md:grid-cols-4 gap-4">
+                    <div>
+                        <label class="block text-sm font-medium text-text-secondary mb-2">Content Type</label>
+                        <select class="w-full px-3 py-2 border border-surface-300 rounded-lg focus:ring-2 focus:ring-primary-300 focus:border-primary">
+                            <option>All Types</option>
+                            <option>Manuscripts</option>
+                            <option>Murals</option>
+                            <option>Historical Documents</option>
+                            <option>Photographs</option>
+                            <option>Research Papers</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium text-text-secondary mb-2">Date Range</label>
+                        <select class="w-full px-3 py-2 border border-surface-300 rounded-lg focus:ring-2 focus:ring-primary-300 focus:border-primary">
+                            <option>All Periods</option>
+                            <option>Ancient (Pre-1600)</option>
+                            <option>Classical (1600-1800)</option>
+                            <option>Modern (1800-1950)</option>
+                            <option>Contemporary (1950+)</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium text-text-secondary mb-2">Language</label>
+                        <select class="w-full px-3 py-2 border border-surface-300 rounded-lg focus:ring-2 focus:ring-primary-300 focus:border-primary">
+                            <option>All Languages</option>
+                            <option>Tibetan</option>
+                            <option>Sanskrit</option>
+                            <option>Nepali</option>
+                            <option>English</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium text-text-secondary mb-2">Monastery</label>
+                        <select class="w-full px-3 py-2 border border-surface-300 rounded-lg focus:ring-2 focus:ring-primary-300 focus:border-primary">
+                            <option>All Monasteries</option>
+                            <option>Rumtek</option>
+                            <option>Enchey</option>
+                            <option>Tashiding</option>
+                            <option>Pemayangtse</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="flex justify-between items-center mt-6">
+                    <button class="text-accent hover:text-accent-600 font-medium flex items-center">
+                        <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"/>
+                        </svg>
+                        Reset Filters
+                    </button>
+                    <button class="btn-primary">
+                        Search Archive
+                    </button>
+                </div>
+            </div>
+
+            <!-- AI Suggestions -->
+            <div class="text-center mb-8">
+                <p class="text-text-secondary mb-4">Popular searches:</p>
+                <div class="flex flex-wrap justify-center gap-3">
+                    <span class="bg-primary-50 text-primary px-4 py-2 rounded-full text-sm cursor-pointer hover:bg-primary-100 transition-colors duration-300">Buddhist philosophy manuscripts</span>
+                    <span class="bg-primary-50 text-primary px-4 py-2 rounded-full text-sm cursor-pointer hover:bg-primary-100 transition-colors duration-300">Monastery architecture drawings</span>
+                    <span class="bg-primary-50 text-primary px-4 py-2 rounded-full text-sm cursor-pointer hover:bg-primary-100 transition-colors duration-300">Tibetan prayer texts</span>
+                    <span class="bg-primary-50 text-primary px-4 py-2 rounded-full text-sm cursor-pointer hover:bg-primary-100 transition-colors duration-300">Historical photographs</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Featured Collections -->
+    <section class="py-16 bg-surface">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <h2 class="text-4xl font-crimson font-semibold text-primary mb-4">Featured Collections</h2>
+                <p class="text-lg text-text-secondary max-w-2xl mx-auto">
+                    Curated selections of our most significant manuscripts and historical documents
+                </p>
+            </div>
+
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Collection 1 -->
+                <div class="card-gentle group cursor-pointer">
+                    <div class="relative mb-4 overflow-hidden rounded-lg">
+                        <img src="https://images.unsplash.com/photo-1481627834876-b7833e8f5570?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Ancient Buddhist Manuscripts" class="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300" onerror="this.src='https://images.pexels.com/photos/1370295/pexels-photo-1370295.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2'; this.onerror=null;" />
+                        <div class="absolute top-3 right-3 bg-accent text-white px-2 py-1 rounded-full text-xs font-medium">
+                            247 Items
+                        </div>
+                    </div>
+                    <h3 class="text-xl font-crimson font-semibold text-primary mb-2">Ancient Buddhist Manuscripts</h3>
+                    <p class="text-text-secondary mb-4">Rare Sanskrit and Tibetan texts dating from the 12th to 16th centuries, including philosophical treatises and meditation guides.</p>
+                    <div class="flex items-center justify-between">
+                        <span class="text-sm text-text-muted">Last updated: Dec 2025</span>
+                        <button class="text-accent hover:text-accent-600 font-medium text-sm">Explore Collection →</button>
+                    </div>
+                </div>
+
+                <!-- Collection 2 -->
+                <div class="card-gentle group cursor-pointer">
+                    <div class="relative mb-4 overflow-hidden rounded-lg">
+                        <img src="https://images.pexels.com/photos/1370295/pexels-photo-1370295.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" alt="Monastery Murals Archive" class="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300" onerror="this.src='https://images.pixabay.com/photos/2016/11/29/05/45/astronomy-1867616_1280.jpg'; this.onerror=null;" />
+                        <div class="absolute top-3 right-3 bg-accent text-white px-2 py-1 rounded-full text-xs font-medium">
+                            892 Items
+                        </div>
+                    </div>
+                    <h3 class="text-xl font-crimson font-semibold text-primary mb-2">Monastery Murals Archive</h3>
+                    <p class="text-text-secondary mb-4">High-resolution documentation of sacred wall paintings and artistic traditions from Sikkim's most important monasteries.</p>
+                    <div class="flex items-center justify-between">
+                        <span class="text-sm text-text-muted">Last updated: Nov 2025</span>
+                        <button class="text-accent hover:text-accent-600 font-medium text-sm">Explore Collection →</button>
+                    </div>
+                </div>
+
+                <!-- Collection 3 -->
+                <div class="card-gentle group cursor-pointer">
+                    <div class="relative mb-4 overflow-hidden rounded-lg">
+                        <img src="https://images.pixabay.com/photos/2016/11/29/05/45/astronomy-1867616_1280.jpg" alt="Historical Documents" class="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300" onerror="this.src='https://images.unsplash.com/photo-1481627834876-b7833e8f5570?q=80&w=2940&auto=format&fit=crop'; this.onerror=null;" />
+                        <div class="absolute top-3 right-3 bg-accent text-white px-2 py-1 rounded-full text-xs font-medium">
+                            156 Items
+                        </div>
+                    </div>
+                    <h3 class="text-xl font-crimson font-semibold text-primary mb-2">Historical Documents</h3>
+                    <p class="text-text-secondary mb-4">Administrative records, correspondence, and official documents chronicling the development of monastic institutions.</p>
+                    <div class="flex items-center justify-between">
+                        <span class="text-sm text-text-muted">Last updated: Dec 2025</span>
+                        <button class="text-accent hover:text-accent-600 font-medium text-sm">Explore Collection →</button>
+                    </div>
+                </div>
+
+                <!-- Collection 4 -->
+                <div class="card-gentle group cursor-pointer">
+                    <div class="relative mb-4 overflow-hidden rounded-lg">
+                        <img src="https://images.unsplash.com/photo-1544735716-392fe2489ffa?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Photographic Heritage" class="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300" onerror="this.src='https://images.pexels.com/photos/1370295/pexels-photo-1370295.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2'; this.onerror=null;" />
+                        <div class="absolute top-3 right-3 bg-accent text-white px-2 py-1 rounded-full text-xs font-medium">
+                            1,234 Items
+                        </div>
+                    </div>
+                    <h3 class="text-xl font-crimson font-semibold text-primary mb-2">Photographic Heritage</h3>
+                    <p class="text-text-secondary mb-4">Historical photographs documenting monastery life, festivals, and architectural evolution from the early 20th century.</p>
+                    <div class="flex items-center justify-between">
+                        <span class="text-sm text-text-muted">Last updated: Dec 2025</span>
+                        <button class="text-accent hover:text-accent-600 font-medium text-sm">Explore Collection →</button>
+                    </div>
+                </div>
+
+                <!-- Collection 5 -->
+                <div class="card-gentle group cursor-pointer">
+                    <div class="relative mb-4 overflow-hidden rounded-lg">
+                        <img src="https://images.pexels.com/photos/1051838/pexels-photo-1051838.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" alt="Research Publications" class="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300" onerror="this.src='https://images.pixabay.com/photos/2016/11/29/05/45/astronomy-1867616_1280.jpg'; this.onerror=null;" />
+                        <div class="absolute top-3 right-3 bg-accent text-white px-2 py-1 rounded-full text-xs font-medium">
+                            89 Items
+                        </div>
+                    </div>
+                    <h3 class="text-xl font-crimson font-semibold text-primary mb-2">Research Publications</h3>
+                    <p class="text-text-secondary mb-4">Peer-reviewed academic papers and scholarly research on Himalayan Buddhism, monastery architecture, and cultural preservation.</p>
+                    <div class="flex items-center justify-between">
+                        <span class="text-sm text-text-muted">Last updated: Nov 2025</span>
+                        <button class="text-accent hover:text-accent-600 font-medium text-sm">Explore Collection →</button>
+                    </div>
+                </div>
+
+                <!-- Collection 6 -->
+                <div class="card-gentle group cursor-pointer">
+                    <div class="relative mb-4 overflow-hidden rounded-lg">
+                        <img src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Ritual Objects Catalog" class="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300" onerror="this.src='https://images.unsplash.com/photo-1544735716-392fe2489ffa?q=80&w=2940&auto=format&fit=crop'; this.onerror=null;" />
+                        <div class="absolute top-3 right-3 bg-accent text-white px-2 py-1 rounded-full text-xs font-medium">
+                            445 Items
+                        </div>
+                    </div>
+                    <h3 class="text-xl font-crimson font-semibold text-primary mb-2">Ritual Objects Catalog</h3>
+                    <p class="text-text-secondary mb-4">Detailed documentation of sacred artifacts, ceremonial items, and religious implements used in monastic practices.</p>
+                    <div class="flex items-center justify-between">
+                        <span class="text-sm text-text-muted">Last updated: Dec 2025</span>
+                        <button class="text-accent hover:text-accent-600 font-medium text-sm">Explore Collection →</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Research Tools Section -->
+    <section class="py-16 bg-background">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <h2 class="text-4xl font-crimson font-semibold text-primary mb-4">Advanced Research Tools</h2>
+                <p class="text-lg text-text-secondary max-w-2xl mx-auto">
+                    Professional-grade tools designed for scholars, researchers, and cultural preservation experts
+                </p>
+            </div>
+
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- High-Resolution Viewer -->
+                <div class="card-gentle text-center">
+                    <div class="w-16 h-16 bg-primary-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <svg class="w-8 h-8 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-crimson font-semibold text-primary mb-3">High-Resolution Viewer</h3>
+                    <p class="text-text-secondary mb-4">Advanced zoom capabilities up to 10,000x magnification for detailed manuscript analysis and character recognition.</p>
+                    <button class="text-accent hover:text-accent-600 font-medium">Learn More →</button>
+                </div>
+
+                <!-- Citation Generator -->
+                <div class="card-gentle text-center">
+                    <div class="w-16 h-16 bg-secondary-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <svg class="w-8 h-8 text-secondary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-crimson font-semibold text-primary mb-3">Citation Generator</h3>
+                    <p class="text-text-secondary mb-4">Automatic generation of academic citations in APA, MLA, Chicago, and specialized Buddhist studies formats.</p>
+                    <button class="text-accent hover:text-accent-600 font-medium">Learn More →</button>
+                </div>
+
+                <!-- Collaborative Annotations -->
+                <div class="card-gentle text-center">
+                    <div class="w-16 h-16 bg-accent-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <svg class="w-8 h-8 text-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8h2a2 2 0 012 2v6a2 2 0 01-2 2h-2v4l-4-4H9a1.994 1.994 0 01-1.414-.586m0 0L11 14h4a2 2 0 002-2V6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2v4l.586-.586z"/>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-crimson font-semibold text-primary mb-3">Collaborative Annotations</h3>
+                    <p class="text-text-secondary mb-4">Real-time collaborative tools for scholars to share insights, translations, and interpretations with global research teams.</p>
+                    <button class="text-accent hover:text-accent-600 font-medium">Learn More →</button>
+                </div>
+
+                <!-- Download Center -->
+                <div class="card-gentle text-center">
+                    <div class="w-16 h-16 bg-success-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <svg class="w-8 h-8 text-success" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-crimson font-semibold text-primary mb-3">Secure Downloads</h3>
+                    <p class="text-text-secondary mb-4">Approved materials available in multiple formats including PDF, TIFF, and specialized manuscript formats with usage tracking.</p>
+                    <button class="text-accent hover:text-accent-600 font-medium">Learn More →</button>
+                </div>
+
+                <!-- AI Translation -->
+                <div class="card-gentle text-center">
+                    <div class="w-16 h-16 bg-warning-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <svg class="w-8 h-8 text-warning" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5h12M9 3v2m1.048 9.5A18.022 18.022 0 016.412 9m6.088 9h7M11 21l5-10 5 10M12.751 5C11.783 10.77 8.07 15.61 3 18.129"/>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-crimson font-semibold text-primary mb-3">AI Translation Assistant</h3>
+                    <p class="text-text-secondary mb-4">Machine learning-powered translation support for Sanskrit, Tibetan, and ancient scripts with scholarly verification.</p>
+                    <button class="text-accent hover:text-accent-600 font-medium">Learn More →</button>
+                </div>
+
+                <!-- Accessibility Tools -->
+                <div class="card-gentle text-center">
+                    <div class="w-16 h-16 bg-primary-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <svg class="w-8 h-8 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/>
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"/>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-crimson font-semibold text-primary mb-3">Accessibility Features</h3>
+                    <p class="text-text-secondary mb-4">Screen reader compatibility, high contrast modes, and text-to-speech functionality for inclusive research access.</p>
+                    <button class="text-accent hover:text-accent-600 font-medium">Learn More →</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Academic Partnerships -->
+    <section class="py-16 bg-primary text-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <h2 class="text-4xl font-crimson font-semibold mb-4">Academic Partnerships</h2>
+                <p class="text-lg text-primary-100 max-w-2xl mx-auto">
+                    Collaborating with leading institutions worldwide to advance Buddhist studies and cultural preservation
+                </p>
+            </div>
+
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
+                <!-- Partnership 1 -->
+                <div class="text-center">
+                    <div class="w-20 h-20 bg-primary-600 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <svg class="w-10 h-10 text-white" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M12 3L1 9l4 2.18v6L12 21l7-3.82v-6l2-1.09V17h2V9L12 3zm6.82 6L12 12.72 5.18 9 12 5.28 18.82 9zM17 15.99l-5 2.73-5-2.73v-3.72L12 15l5-2.73v3.72z"/>
+                        </svg>
+                    </div>
+                    <h3 class="text-lg font-crimson font-semibold mb-2">Harvard University</h3>
+                    <p class="text-primary-200 text-sm">Buddhist Studies Program</p>
+                </div>
+
+                <!-- Partnership 2 -->
+                <div class="text-center">
+                    <div class="w-20 h-20 bg-primary-600 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <svg class="w-10 h-10 text-white" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M12 3L1 9l4 2.18v6L12 21l7-3.82v-6l2-1.09V17h2V9L12 3zm6.82 6L12 12.72 5.18 9 12 5.28 18.82 9zM17 15.99l-5 2.73-5-2.73v-3.72L12 15l5-2.73v3.72z"/>
+                        </svg>
+                    </div>
+                    <h3 class="text-lg font-crimson font-semibold mb-2">Oxford University</h3>
+                    <p class="text-primary-200 text-sm">Oriental Institute</p>
+                </div>
+
+                <!-- Partnership 3 -->
+                <div class="text-center">
+                    <div class="w-20 h-20 bg-primary-600 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <svg class="w-10 h-10 text-white" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M12 3L1 9l4 2.18v6L12 21l7-3.82v-6l2-1.09V17h2V9L12 3zm6.82 6L12 12.72 5.18 9 12 5.28 18.82 9zM17 15.99l-5 2.73-5-2.73v-3.72L12 15l5-2.73v3.72z"/>
+                        </svg>
+                    </div>
+                    <h3 class="text-lg font-crimson font-semibold mb-2">Jawaharlal Nehru University</h3>
+                    <p class="text-primary-200 text-sm">Centre for Buddhist Studies</p>
+                </div>
+
+                <!-- Partnership 4 -->
+                <div class="text-center">
+                    <div class="w-20 h-20 bg-primary-600 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <svg class="w-10 h-10 text-white" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M12 3L1 9l4 2.18v6L12 21l7-3.82v-6l2-1.09V17h2V9L12 3zm6.82 6L12 12.72 5.18 9 12 5.28 18.82 9zM17 15.99l-5 2.73-5-2.73v-3.72L12 15l5-2.73v3.72z"/>
+                        </svg>
+                    </div>
+                    <h3 class="text-lg font-crimson font-semibold mb-2">University of Vienna</h3>
+                    <p class="text-primary-200 text-sm">Institute for South Asian Studies</p>
+                </div>
+            </div>
+
+            <!-- Research Collaboration CTA -->
+            <div class="text-center">
+                <h3 class="text-2xl font-crimson font-semibold mb-4">Join Our Research Community</h3>
+                <p class="text-primary-100 mb-6 max-w-2xl mx-auto">
+                    Connect with scholars worldwide, access exclusive research materials, and contribute to the preservation of Himalayan Buddhist heritage
+                </p>
+                <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                    <a href="educational_resources.html" class="bg-white text-primary px-8 py-4 rounded-lg font-lato font-medium hover:bg-primary-50 transition-colors duration-300">
+                        Apply for Research Access
+                    </a>
+                    <button class="bg-accent text-white px-8 py-4 rounded-lg font-lato font-medium hover:bg-accent-600 transition-colors duration-300">
+                        Submit Research Proposal
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Recent Additions -->
+    <section class="py-16 bg-surface">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center mb-12">
+                <div>
+                    <h2 class="text-4xl font-crimson font-semibold text-primary mb-4">Recent Additions</h2>
+                    <p class="text-lg text-text-secondary">
+                        Latest manuscripts and documents added to our digital archive
+                    </p>
+                </div>
+                <button class="text-accent hover:text-accent-600 font-medium">View All →</button>
+            </div>
+
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+                <!-- Recent Item 1 -->
+                <div class="card-gentle group cursor-pointer">
+                    <div class="relative mb-3 overflow-hidden rounded-lg">
+                        <img src="https://images.unsplash.com/photo-1481627834876-b7833e8f5570?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Prajnaparamita Manuscript" class="w-full h-32 object-cover group-hover:scale-105 transition-transform duration-300" onerror="this.src='https://images.pexels.com/photos/1370295/pexels-photo-1370295.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2'; this.onerror=null;" />
+                        <div class="absolute top-2 right-2 bg-success text-white px-2 py-1 rounded-full text-xs font-medium">
+                            NEW
+                        </div>
+                    </div>
+                    <h4 class="font-crimson font-semibold text-primary mb-1">Prajnaparamita Manuscript</h4>
+                    <p class="text-sm text-text-secondary mb-2">15th century Sanskrit text on wisdom perfection</p>
+                    <span class="text-xs text-text-muted">Added Dec 18, 2025</span>
+                </div>
+
+                <!-- Recent Item 2 -->
+                <div class="card-gentle group cursor-pointer">
+                    <div class="relative mb-3 overflow-hidden rounded-lg">
+                        <img src="https://images.pexels.com/photos/1370295/pexels-photo-1370295.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" alt="Monastery Construction Records" class="w-full h-32 object-cover group-hover:scale-105 transition-transform duration-300" onerror="this.src='https://images.pixabay.com/photos/2016/11/29/05/45/astronomy-1867616_1280.jpg'; this.onerror=null;" />
+                        <div class="absolute top-2 right-2 bg-success text-white px-2 py-1 rounded-full text-xs font-medium">
+                            NEW
+                        </div>
+                    </div>
+                    <h4 class="font-crimson font-semibold text-primary mb-1">Monastery Construction Records</h4>
+                    <p class="text-sm text-text-secondary mb-2">18th century architectural documentation</p>
+                    <span class="text-xs text-text-muted">Added Dec 17, 2025</span>
+                </div>
+
+                <!-- Recent Item 3 -->
+                <div class="card-gentle group cursor-pointer">
+                    <div class="relative mb-3 overflow-hidden rounded-lg">
+                        <img src="https://images.pixabay.com/photos/2016/11/29/05/45/astronomy-1867616_1280.jpg" alt="Ritual Calendar Manuscript" class="w-full h-32 object-cover group-hover:scale-105 transition-transform duration-300" onerror="this.src='https://images.unsplash.com/photo-1481627834876-b7833e8f5570?q=80&w=2940&auto=format&fit=crop'; this.onerror=null;" />
+                        <div class="absolute top-2 right-2 bg-success text-white px-2 py-1 rounded-full text-xs font-medium">
+                            NEW
+                        </div>
+                    </div>
+                    <h4 class="font-crimson font-semibold text-primary mb-1">Ritual Calendar Manuscript</h4>
+                    <p class="text-sm text-text-secondary mb-2">Traditional festival and ceremony schedules</p>
+                    <span class="text-xs text-text-muted">Added Dec 16, 2025</span>
+                </div>
+
+                <!-- Recent Item 4 -->
+                <div class="card-gentle group cursor-pointer">
+                    <div class="relative mb-3 overflow-hidden rounded-lg">
+                        <img src="https://images.unsplash.com/photo-1544735716-392fe2489ffa?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Meditation Guide Collection" class="w-full h-32 object-cover group-hover:scale-105 transition-transform duration-300" onerror="this.src='https://images.pexels.com/photos/1370295/pexels-photo-1370295.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2'; this.onerror=null;" />
+                        <div class="absolute top-2 right-2 bg-success text-white px-2 py-1 rounded-full text-xs font-medium">
+                            NEW
+                        </div>
+                    </div>
+                    <h4 class="font-crimson font-semibold text-primary mb-1">Meditation Guide Collection</h4>
+                    <p class="text-sm text-text-secondary mb-2">Tibetan meditation instructions and practices</p>
+                    <span class="text-xs text-text-muted">Added Dec 15, 2025</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Call to Action -->
+    <section class="py-16 bg-gradient-to-r from-secondary to-accent text-white">
+        <div class="max-w-4xl mx-auto text-center px-4 sm:px-6 lg:px-8">
+            <h2 class="text-4xl font-crimson font-semibold mb-6">Contribute to Cultural Preservation</h2>
+            <p class="text-xl mb-8 text-secondary-100">
+                Help us digitize and preserve Sikkim's monastic heritage for future generations through collaborative research and documentation
+            </p>
+            <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                <button class="bg-white text-secondary px-8 py-4 rounded-lg font-lato font-medium hover:bg-secondary-50 transition-colors duration-300">
+                    Submit Manuscript
+                </button>
+                <a href="educational_resources.html" class="bg-primary text-white px-8 py-4 rounded-lg font-lato font-medium hover:bg-primary-600 transition-colors duration-300">
+                    Join Research Program
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-text-primary text-white py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid md:grid-cols-4 gap-8">
+                <!-- Logo & Description -->
+                <div class="md:col-span-2">
+                    <div class="flex items-center mb-4">
+                        <svg class="h-8 w-8 text-accent" viewBox="0 0 40 40" fill="currentColor">
+                            <circle cx="20" cy="20" r="18" stroke="currentColor" stroke-width="2" fill="none"/>
+                            <path d="M12 20 L20 12 L28 20 L20 28 Z" fill="currentColor"/>
+                            <circle cx="20" cy="20" r="4" fill="white"/>
+                        </svg>
+                        <span class="ml-3 text-xl font-crimson font-semibold">Monastery360</span>
+                    </div>
+                    <p class="text-gray-300 mb-4 max-w-md">
+                        Preserving and sharing Sikkim's sacred monastic heritage through innovative digital experiences and community-driven cultural preservation.
+                    </p>
+                    <div class="flex space-x-4">
+                        <a href="javascript:void(0)" class="text-gray-400 hover:text-accent transition-colors duration-300">
+                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M24 4.557c-.883.392-1.832.656-2.828.775 1.017-.609 1.798-1.574 2.165-2.724-.951.564-2.005.974-3.127 1.195-.897-.957-2.178-1.555-3.594-1.555-3.179 0-5.515 2.966-4.797 6.045-4.091-.205-7.719-2.165-10.148-5.144-1.29 2.213-.669 5.108 1.523 6.574-.806-.026-1.566-.247-2.229-.616-.054 2.281 1.581 4.415 3.949 4.89-.693.188-1.452.232-2.224.084.626 1.956 2.444 3.379 4.6 3.419-2.07 1.623-4.678 2.348-7.29 2.04 2.179 1.397 4.768 2.212 7.548 2.212 9.142 0 14.307-7.721 13.995-14.646.962-.695 1.797-1.562 2.457-2.549z"/>
+                            </svg>
+                        </a>
+                        <a href="javascript:void(0)" class="text-gray-400 hover:text-accent transition-colors duration-300">
+                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M22.46 6c-.77.35-1.6.58-2.46.69.88-.53 1.56-1.37 1.88-2.38-.83.5-1.75.85-2.72 1.05C18.37 4.5 17.26 4 16 4c-2.35 0-4.27 1.92-4.27 4.29 0 .34.04.67.11.98C8.28 9.09 5.11 7.38 3 4.79c-.37.63-.58 1.37-.58 2.15 0 1.49.75 2.81 1.91 3.56-.71 0-1.37-.2-1.95-.5v.03c0 2.08 1.48 3.82 3.44 4.21a4.22 4.22 0 0 1-1.93.07 4.28 4.28 0 0 0 4 2.98 8.521 8.521 0 0 1-5.33 1.84c-.34 0-.68-.02-1.02-.06C3.44 20.29 5.7 21 8.12 21 16 21 20.33 14.46 20.33 8.79c0-.19 0-.37-.01-.56.84-.6 1.56-1.36 2.14-2.23z"/>
+                            </svg>
+                        </a>
+                        <a href="javascript:void(0)" class="text-gray-400 hover:text-accent transition-colors duration-300">
+                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M12.017 0C5.396 0 .029 5.367.029 11.987c0 5.079 3.158 9.417 7.618 11.174-.105-.949-.199-2.403.041-3.439.219-.937 1.406-5.957 1.406-5.957s-.359-.72-.359-1.781c0-1.663.967-2.911 2.168-2.911 1.024 0 1.518.769 1.518 1.688 0 1.029-.653 2.567-.992 3.992-.285 1.193.6 2.165 1.775 2.165 2.128 0 3.768-2.245 3.768-5.487 0-2.861-2.063-4.869-5.008-4.869-3.41 0-5.409 2.562-5.409 5.199 0 1.033.394 2.143.889 2.741.099.12.112.225.085.345-.09.375-.293 1.199-.334 1.363-.053.225-.172.271-.402.165-1.495-.69-2.433-2.878-2.433-4.646 0-3.776 2.748-7.252 7.92-7.252 4.158 0 7.392 2.967 7.392 6.923 0 4.135-2.607 7.462-6.233 7.462-1.214 0-2.357-.629-2.75-1.378l-.748 2.853c-.271 1.043-1.002 2.35-1.492 3.146C9.57 23.812 10.763 24.009 12.017 24.009c6.624 0 11.99-5.367 11.99-11.988C24.007 5.367 18.641.001.012.001z"/>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Quick Links -->
+                <div>
+                    <h3 class="text-lg font-crimson font-semibold mb-4">Explore</h3>
+                    <ul class="space-y-2">
+                        <li><a href="virtual_tours.html" class="text-gray-300 hover:text-accent transition-colors duration-300">Virtual Tours</a></li>
+                        <li><a href="digital_archive.html" class="text-gray-300 hover:text-accent transition-colors duration-300">Digital Archive</a></li>
+                        <li><a href="cultural_calendar.html" class="text-gray-300 hover:text-accent transition-colors duration-300">Cultural Calendar</a></li>
+                        <li><a href="educational_resources.html" class="text-gray-300 hover:text-accent transition-colors duration-300">Education</a></li>
+                    </ul>
+                </div>
+
+                <!-- Support -->
+                <div>
+                    <h3 class="text-lg font-crimson font-semibold mb-4">Support</h3>
+                    <ul class="space-y-2">
+                        <li><a href="javascript:void(0)" class="text-gray-300 hover:text-accent transition-colors duration-300">Help Center</a></li>
+                        <li><a href="javascript:void(0)" class="text-gray-300 hover:text-accent transition-colors duration-300">Contact Us</a></li>
+                        <li><a href="javascript:void(0)" class="text-gray-300 hover:text-accent transition-colors duration-300">Privacy Policy</a></li>
+                        <li><a href="javascript:void(0)" class="text-gray-300 hover:text-accent transition-colors duration-300">Terms of Service</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="border-t border-gray-700 mt-8 pt-8 text-center">
+                <p class="text-gray-400">© 2025 Monastery360. All Rights Reserved. Preserving sacred heritage through digital innovation.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Mobile Menu Script -->
+    <script>
+        document.getElementById('mobile-menu-btn').addEventListener('click', function() {
+            const mobileMenu = document.getElementById('mobile-menu');
+            mobileMenu.classList.toggle('hidden');
+        });
+    </script>
+</body>
+</html>
